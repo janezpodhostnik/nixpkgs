@@ -132,6 +132,9 @@ rustPlatform.buildRustPackage rec {
         pkg-config
         rustPlatform
         wezterm
+        lib
+        stdenv
+        perl
         ;
     };
 

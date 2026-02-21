@@ -3,6 +3,9 @@
   pkg-config,
   rustPlatform,
   wezterm,
+  lib,
+  stdenv,
+  perl,
 }:
 
 rustPlatform.buildRustPackage {
@@ -15,7 +18,10 @@ rustPlatform.buildRustPackage {
     meta
     ;
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [
+    pkg-config
+  ]
+  ++ lib.optional stdenv.hostPlatform.isDarwin perl;
 
   buildInputs = [ openssl ];
 
